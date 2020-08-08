@@ -1,6 +1,5 @@
 # PS2SDK-PORTS
 
-
 ![CI](https://github.com/ps2dev/ps2sdk-ports/workflows/CI/badge.svg)
 ![CI-Docker](https://github.com/ps2dev/ps2sdk-ports/workflows/CI-Docker/badge.svg)
 
