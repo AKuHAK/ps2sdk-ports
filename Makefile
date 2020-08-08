@@ -69,7 +69,8 @@ libpng: zlib
 	$(MAKE) -C $@/src all
 	$(MAKE) -C $@/src install
 
-libsmb2: git submodule update --init libsmb2
+libsmb2:
+	git submodule update --init libsmb2
 	$(MAKE) -f Makefile.PS2_EE -C $@/lib clean  
 	$(MAKE) -f Makefile.PS2_EE -C $@/lib all  
 
