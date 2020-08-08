@@ -72,9 +72,9 @@ libpng: zlib
 libsmb2:
 	git submodule update --init libsmb2
 #	$(MAKE) -f Makefile.PS2_EE -C $@/lib clean
-        cd $@/lib
+	cd $@/lib
 	$(MAKE) -f Makefile.PS2_EE all
-        cd ../../ 
+	cd ../../ 
 
 libtap:
 	git submodule update --init libtap
