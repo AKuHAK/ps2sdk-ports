@@ -22,4 +22,4 @@ jobs:
 
     - name: Compile project
       run: |
-        make
+        make libsmb2
