@@ -1,10 +1,10 @@
-.PHONY: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libpng libtap libtiff lua madplay ode romfs sdl sdlgfx sdlimage sdlmixer sdlttf stlport ucl
+.PHONY: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libsmb2 libpng libtap libtiff lua madplay ode romfs sdl sdlgfx sdlimage sdlmixer sdlttf stlport ucl
 
 ifneq ("$(wildcard $(GSKIT)/include/gsKit.h)","")
-all: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libpng libtap libtiff lua madplay romfs sdl sdlgfx sdlimage sdlmixer sdlttf stlport ucl
+all: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libsmb2 libpng libtap libtiff lua madplay romfs sdl sdlgfx sdlimage sdlmixer sdlttf stlport ucl
 # ode
 else
-all: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libpng libtap libtiff lua madplay romfs stlport ucl
+all: submodules aalib expat freetype2 libconfig libid3tag zlib libjpeg libmad libmikmod libsmb2 libpng libtap libtiff lua madplay romfs stlport ucl
 # ode
 	@echo "GSKIT not set and gsKit not installed.\nSDL libraries were not built."
 endif
@@ -68,6 +68,10 @@ libpng: zlib
 	$(MAKE) -C $@/src clean
 	$(MAKE) -C $@/src all
 	$(MAKE) -C $@/src install
+
+libsmb2: git submodule update --init libsmb2
+	$(MAKE) -f Makefile.PS2_EE -C $@/lib clean  
+	$(MAKE) -f Makefile.PS2_EE -C $@/lib all  
 
 libtap:
 	git submodule update --init libtap
