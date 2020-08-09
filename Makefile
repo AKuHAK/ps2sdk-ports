@@ -72,7 +72,11 @@ libpng: zlib
 libsmb2:
 	git submodule update --init libsmb2
 #	$(MAKE) -f Makefile.PS2_EE -C $@/lib clean
-	$(MAKE) -f Makefile.PS2_EE -C $@/lib all
+#	$(MAKE) -f Makefile.PS2_EE -C $@/lib all
+	cmake -Wno-dev -DCMAKE_TOOLCHAIN_FILE=../../ps2dev.cmake -DCMAKE_INSTALL_PREFIX=$(PS2SDK)/ports -DBUILD_SHARED_LIBS=OFF -DENABLE_EXAMPLES=OFF ../../$@; \
+	-DPS2_EE_PLATFORM -DHAVE_STDINT_H -DHAVE_STRING_H \
+	-DHAVE_STDLIB_H -DHAVE_SYS_TYPES_H -DHAVE_UNISTD_H \
+	-D_U_=/**/
 
 libtap:
 	git submodule update --init libtap
