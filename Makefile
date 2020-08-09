@@ -79,7 +79,7 @@ libsmb2:
 	cmake -Wno-dev -DCMAKE_TOOLCHAIN_FILE=../../ps2dev.cmake -DCMAKE_INSTALL_PREFIX=$(PS2SDK)/ports -DBUILD_SHARED_LIBS=OFF -DENABLE_EXAMPLES=OFF ../../$@; \
 	-DPS2_EE_PLATFORM -DHAVE_STDINT_H -DHAVE_STRING_H \
 	-DHAVE_STDLIB_H -DHAVE_SYS_TYPES_H -DHAVE_UNISTD_H \
-	-D_U_=/**/ -DOPENSSL_FOUND=OFF
+	-D_U_=/**/ -DOPENSSL_INCLUDE_DIR=include
 
 libtap:
 	git submodule update --init libtap
