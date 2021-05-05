@@ -12,7 +12,7 @@ function build {
     cd build
     ## Fix for MINGW make
     OSVER=$(uname)
-    if (( ${OSVER:0:10} == MINGW32_NT )); then
+    if [ ${OSVER:0:10} == MINGW32_NT ]; then
       cmake $CMAKE_OPTIONS $2 -G "MinGW Makefiles" .. || { exit 1; }
       PROC_NR=1
       mingw32-make --quiet -j $PROC_NR clean || { exit 1; }
