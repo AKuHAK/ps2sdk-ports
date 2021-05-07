@@ -10,20 +10,13 @@ function build {
     cd $1
     mkdir build
     cd build
-    ## Fix for MINGW make
-    OSVER=$(uname)
-    if [ ${OSVER:0:10} == MINGW32_NT ]; then
-      cmake $CMAKE_OPTIONS $2 -G "MinGW Makefiles" .. || { exit 1; }
-      PROC_NR=1
-      mingw32-make --quiet -j $PROC_NR clean || { exit 1; }
-      mingw32-make --quiet -j $PROC_NR all || { exit 1; }
-      mingw32-make --quiet -j $PROC_NR install || { exit 1; }
-    else
-      cmake $CMAKE_OPTIONS $2 .. || { exit 1; }
-      make --quiet -j $PROC_NR clean || { exit 1; }
-      make --quiet -j $PROC_NR all || { exit 1; }
-      make --quiet -j $PROC_NR install || { exit 1; }
-    fi
+
+    cmake $CMAKE_OPTIONS $2 -G "MinGW Makefiles" .. || { exit 1; }
+    PROC_NR=1
+    mingw32-make --quiet -j $PROC_NR clean || { exit 1; }
+    mingw32-make --quiet -j $PROC_NR all || { exit 1; }
+    mingw32-make --quiet -j $PROC_NR install || { exit 1; }
+
     cd ../..
 }
 
