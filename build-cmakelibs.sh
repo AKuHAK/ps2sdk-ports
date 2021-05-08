@@ -7,7 +7,7 @@ XTRA_OPTS=""
 MAKECMD=make
 OSVER=$(uname)
 if [ ${OSVER:0:5} == MINGW ]; then
-  PROC_NR=1
+  #PROC_NR=1
   XTRA_OPTS=(. -G"MinGW Makefiles")
   MAKECMD=${OSVER:0:7}-make
 fi
